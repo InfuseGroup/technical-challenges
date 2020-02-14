@@ -1,0 +1,12 @@
+.card {
+  width: 100%;
+}
+
+.card__inner {
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
