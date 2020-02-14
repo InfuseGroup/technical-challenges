@@ -19,7 +19,7 @@ export default function Login() {
     <div>
       <h3>1. Fix any errors</h3>
       <h3>2. Validate the email (client side)</h3>
-      <h3>3. Impliment the functionality to show the password</h3>
+      <h3>3. Implement the functionality to show the password</h3>
       <form method='POST' action="/login">
         <input type="hidden" name="authenticity_token" value={authToken} />
         <label htmlFor="">Email</label>
