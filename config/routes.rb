@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get :challenge_2, to: 'static_pages#challenge_2'
   get :challenge_3, to: 'static_pages#challenge_3'
   post :login, to: 'static_pages#login'
+  get :thanks, to: 'static_pages#thanks'
 end
