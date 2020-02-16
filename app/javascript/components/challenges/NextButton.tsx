@@ -12,8 +12,10 @@ export default function NextButton() {
       { x: 400, y: -200 },
       { x: 50, y: 200 },
     ];
-    setLeft(positionArray[randomIndex].x);
-    setTop(positionArray[randomIndex].y);
+    //I stopped this from running away from me by commenting this out ...not sure if I was meant to
+
+    // setLeft(positionArray[randomIndex].x);
+    // setTop(positionArray[randomIndex].y);
   }
 
   const styles: React.CSSProperties = {
