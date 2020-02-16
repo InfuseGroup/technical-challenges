@@ -16,7 +16,9 @@ export default function Cards() {
 
   const randomID = Math.floor(Math.random + 1);
 
-//these probably need turning into an array for the slider
+/* these probably need turning into an array for the slider
+this guide looks useful: https://medium.com/@ItsMeDannyZ/build-an-image-slider-with-react-es6-264368de68e4
+*/
   const [image1Url, setImage1Url] = React.useState<string>('');
   const [image2Url, setImage2Url] = React.useState<string>('');
   const [image3Url, setImage3Url] = React.useState<string>('');
@@ -73,7 +75,7 @@ export default function Cards() {
       <h3>Randomised Image</h3>
       <h3>1. Randomise the image when you click the button.</h3>
       /* this can potentially be achieved by using the NASA api documentation to fetch
-      an image from their database each time */ 
+      an image from their database each time */
       <div className="cards">
         <div className="card" style={{ backgroundImage: `url(${image1Url})` }} />
 
