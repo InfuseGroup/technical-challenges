@@ -9,9 +9,9 @@ export default function Login() {
   const [emailValidationError, setEmailValidationError] = useState("");
   const [showPassword, setShowPassword] = useState("");
 
-function handleEmailChange(event) {
-  setEmail(event.target.value);
-}
+// function handleEmailChange(event) {
+//   setEmail(event.target.value);
+// }
 
 function handleEmailBlur(event){
 // onBlur take the event target value and check it against validation
@@ -23,12 +23,12 @@ function handleEmailBlur(event){
 const isValid = this.validate({
   emailAddress: { email: true }
 });
-validation errors
-  this.setState({ isValid });
-
-console.log("this works on blur");
-
-}
+// validation errors
+//   this.setState({ isValid });
+//
+// console.log("this works on blur");
+//
+ }
 
 
 
@@ -84,12 +84,12 @@ console.log("this works on blur");
 
         <label htmlFor="">Email</label>
         <input name="email" type="email" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
-        <div style={{ color: 'red', margin: '10px 0' }}>{/* errors to go here */}</p>}</div>
+        <div style={{ color: 'red', margin: '10px 0' }}>{/* errors to go here */}</div>
 
         <label htmlFor="">Password</label>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
         <input name="password" type={showPassword ? "text" : "password"} />
-
+        </div>
           <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'Hide' + " password" : 'Show' + " password"}</button>
 
         <button style={buttonStyles} disabled={!email}>
@@ -97,3 +97,5 @@ console.log("this works on blur");
         </button>
       </form>
     </div>
+  );
+}
