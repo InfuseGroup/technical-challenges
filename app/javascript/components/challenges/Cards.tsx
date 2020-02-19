@@ -19,9 +19,6 @@ function getImage(date: string) {
     });
 }
 
-
-
-
 export default function Card({ date }) {
 
   const [imageUrl, setImage] = React.useState('');
