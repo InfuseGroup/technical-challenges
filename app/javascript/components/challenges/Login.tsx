@@ -1,58 +1,32 @@
-import React, { useState } from 'react';
-import ValidationComponent from 'react-native-form-validator';
+import * as React from 'react';
+import { useState } from 'react';
+import { Formik, Form, Field } from 'formik';
 
 
 export default function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [emailValidationError, setEmailValidationError] = useState("");
-  const [showPassword, setShowPassword] = useState("");
-
-// function handleEmailChange(event) {
-//   setEmail(event.target.value);
-// }
-
-function handleEmailBlur(event){
-// onBlur take the event target value and check it against validation
-// if setEmail is valid
-// then no errors
-// else
-// "This is not a valid email"
-
-const isValid = this.validate({
-  emailAddress: { email: true }
-});
-// validation errors
-//   this.setState({ isValid });
-//
-// console.log("this works on blur");
-//
- }
+  // const [emailValidationError, setEmailValidationError] = useState("");
+  const [showPassword, setShowPassword] = useState<boolean>(true);
 
 
+function handleEmailChange(event) {
+  setEmail(event.target.value);
+}
+
+function validateEmail(value) {
+  let error;
+  if (!value) {
+    error = 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+    error = 'Invalid email address';
+  }
+  return error;
+}
 
 
-// function validateEmail(email) {
-//   let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//    return re.test(String(email).toLowerCase());
-// }
-
-// function validateForm(values) {
-//   const errors = {}
-//   if (!values.email) errors.email = "Email address is required"
-//   else if (!validateEmail(values.email)) errors.email = "Not a valid email address"
-//
-//   return errors
-// }
-//
-// const [errors, setErrors] = useState({})
-//
-// function handleEmailBlur() {
-//   const errors = validateForm({ email })
-//   setErrors(errors)
-//   }
-// }
 
   React.useEffect(() => {
     console.log(
@@ -79,23 +53,37 @@ const isValid = this.validate({
       <h3>3. Implement the functionality to show the password.</h3>
       <h3>4. Login successfully using the correct password.</h3>
 
-      <form method="POST" action="/login">
+export const FormikExample = () => (
+      <Formik
+      initialValues={{
+        email: '',
+      }}
+      onSubmit={values => {
+        console.log(values);
+      }}
+    >
+    {({ errors, touched, validateField, validateForm }) => (
+      <form method="POST" action="/login" >
         <input type="hidden" name="authenticity_token" value={authToken} />
 
         <label htmlFor="">Email</label>
-        <input name="email" type="email" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
-        <div style={{ color: 'red', margin: '10px 0' }}>{/* errors to go here */}</div>
+        <input name="email" type="email" value={email} onChange={handleEmailChange} onBlur={() => validateEmail('email')}/>
+
+        <div style={{ color: 'red', margin: '10px 0' }}>{errors.email && touched.email && <div>{errors.email}</div>}}</div>
 
         <label htmlFor="">Password</label>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
         <input name="password" type={showPassword ? "text" : "password"} />
         </div>
-          <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'Hide' + " password" : 'Show' + " password"}</button>
-
+          <button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'Hide' : 'Show'} Password</button>
         <button style={buttonStyles} disabled={!email}>
           Login
         </button>
       </form>
+    )}
+    </Formik>
     </div>
   );
+
+
 }

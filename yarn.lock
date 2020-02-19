@@ -6121,6 +6121,16 @@ react-fast-compare@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
+react-hook-form@^4.9.6:
+  version "4.9.6"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-4.9.6.tgz#2057b4af7028f09d50c9bd1db46d1ff4e453c046"
+  integrity sha512-t5EQdfATwOOlj0rsBmHYBgf6s5L/dzakPzhzr2kdqTVhRnxSI73ZthJofZ+dYiXrXa6ds0VRso49GCHwDXL66Q==
+
+react-hooks-helper@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-hooks-helper/-/react-hooks-helper-1.6.0.tgz#d4105f8745471600b38dc450260d513553c883b1"
+  integrity sha512-DlyWQ99tgwyDdJfTihCXT6AftYymxhA2LS60vBCTOpclmjPxqDwDTLjVK0kbIc3XsgJvxkanW8TwHE0jrIB8hA==
+
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
