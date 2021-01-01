@@ -3,13 +3,13 @@ import * as React from 'react';
 export default function Login() {
   const [email, setEmail] = React.useState<string>('');
 
-  const handleEmailChange = e => setEmail(e.target.value.trim().toLowerCase());
-
   React.useEffect(() => {
     console.log(
       'Once you have fixed this form and added the new functionality sign in with the email: pinpoint@email.com',
     );
   });
+
+  const handleEmailChange = e => setEmail(e.target.value.trim().toLowerCase());
 
   const buttonStyles: React.CSSProperties = {
     backgroundColor: 'green',
