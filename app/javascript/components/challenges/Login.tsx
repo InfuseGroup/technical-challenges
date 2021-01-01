@@ -2,6 +2,8 @@ import * as React from 'react';
 
 export default function Login() {
   const [email, setEmail] = React.useState<string>('');
+  const [showError, setShowError] = React.useState<boolean>(false);
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     console.log(
@@ -10,6 +12,12 @@ export default function Login() {
   });
 
   const handleEmailChange = e => setEmail(e.target.value.trim().toLowerCase());
+
+  const handleBlur = () => {
+    const validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const isValidEmail = validEmail.test(email);
+    setShowError(!isValidEmail);
+  };
 
   const buttonStyles: React.CSSProperties = {
     backgroundColor: 'green',
@@ -31,8 +39,8 @@ export default function Login() {
       <form method="POST" action="/login">
         <input type="hidden" name="authenticity_token" value={authToken} />
         <label htmlFor="">Email</label>
-        <input name="email" type="email" value={email} onChange={handleEmailChange} />
-        <div style={{ color: 'red', margin: '10px 0' }}>{/* Email validation errors go here */}</div>
+        <input name="email" type="email" value={email} onChange={handleEmailChange} onBlur={handleBlur} />
+        <div style={{ color: 'red', margin: '10px 0' }}>{showError && <p>Please enter a valid email address.</p>}</div>
         <label htmlFor="">Password</label>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
           <input name="password" type="password" />
