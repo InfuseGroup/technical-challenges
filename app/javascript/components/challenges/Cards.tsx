@@ -4,16 +4,26 @@ export default function Cards() {
   const nasaApiKey = '6H6EdNLLrDu8SC1LZMJkbJzoGIghjvrjzgQpF72W';
   const baseUri = 'https://api.nasa.gov/planetary/apod';
   const dates = ['2020-02-13', '2020-02-12', '2020-02-02', '2020-02-01'];
+  const randomDateGenerator = () => {
+    const min = new Date(1996,6,16).getTime();
+    const max = new Date().getTime();
+    const random = Math.random() * (max - min) + min;
+    return new Date(random).toISOString().slice(0,10);
+  }
 
   const [imageUrl, setImageUrl] = React.useState<string>('');
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const [randomDate, setRandomDate] = React.useState<string>(randomDateGenerator());
+  const [randomImage, setRandomImage] = React.useState<string>('');
 
   React.useEffect(() => {
     getImage(dates[currentIndex]).then(response => setImageUrl(response));
-  }, [currentIndex]);
+    getImage(randomDate).then(response => setRandomImage(response));
+  }, [currentIndex, randomDate]);
   
   const handleNext = () => setCurrentIndex(prev => (prev + 1) % dates.length);
   const handlePrevious = () => setCurrentIndex(prev => (prev - 1 + dates.length) % dates.length);
+  const handleRandomise = () => setRandomDate(randomDateGenerator());
   
   function getImage(date: string) {
     return fetch(`${baseUri}?api_key=${nasaApiKey}&date=${date}`)
@@ -50,10 +60,10 @@ export default function Cards() {
       <h3>Randomised Image</h3>
       <h3>1. Randomise the image when you click the button.</h3>
       <div className="cards">
-        <div className="card" style={{ backgroundImage: `url(${imageUrl})` }} />
+        <div className="card" style={{ backgroundImage: `url(${randomImage})` }} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button style={buttonStyles}>Randomise</button>
+        <button style={buttonStyles} onClick={handleRandomise}>Randomise</button>
       </div>
     </div>
   );
