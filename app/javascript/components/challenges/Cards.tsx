@@ -25,14 +25,16 @@ export default function Cards() {
   const handlePrevious = () => setCurrentIndex(prev => (prev - 1 + dates.length) % dates.length);
   const handleRandomise = () => setRandomDate(randomDateGenerator());
   
-  function getImage(date: string) {
-    return fetch(`${baseUri}?api_key=${nasaApiKey}&date=${date}`)
-      .then(response => {
-        return response.json();
-      })
-      .then(jsonResponse => {
-        return jsonResponse.hdurl;
-      });
+  const getImage = async(date: string) => {
+    try {
+      const response = await fetch(`${baseUri}?api_key=${nasaApiKey}&date=${date}`);
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        return jsonResponse.hdurl ? jsonResponse.hdurl : 'https://apod.nasa.gov/apod/image/1901/sombrero_spitzer_3000.jpg';
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const buttonStyles: React.CSSProperties = {
