@@ -3,6 +3,8 @@ import * as React from 'react';
 export default function Login() {
   const [email, setEmail] = React.useState<string>('');
 
+  const handleEmailChange = e => setEmail(e.target.value.trim().toLowerCase());
+
   React.useEffect(() => {
     console.log(
       'Once you have fixed this form and added the new functionality sign in with the email: pinpoint@email.com',
@@ -29,7 +31,7 @@ export default function Login() {
       <form method="POST" action="/login">
         <input type="hidden" name="authenticity_token" value={authToken} />
         <label htmlFor="">Email</label>
-        <input name="email" type="text" value={email} />
+        <input name="email" type="email" value={email} onChange={handleEmailChange} />
         <div style={{ color: 'red', margin: '10px 0' }}>{/* Email validation errors go here */}</div>
         <label htmlFor="">Password</label>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
