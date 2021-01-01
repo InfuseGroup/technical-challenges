@@ -6,7 +6,7 @@ export default function Cards() {
   const dates = ['2020-02-13', '2020-02-12', '2020-02-02', '2020-02-01'];
   const randomDateGenerator = () => {
     const min = new Date(1996,6,16).getTime();
-    const max = new Date().getTime();
+    const max = new Date((d => new Date(d.setDate(d.getDate()-1)))(new Date)).getTime();
     const random = Math.random() * (max - min) + min;
     return new Date(random).toISOString().slice(0,10);
   }
