@@ -19,6 +19,8 @@ export default function Login() {
     setShowError(!isValidEmail);
   };
 
+  const handleShowPassword = () => setShowPassword(!showPassword);
+
   const buttonStyles: React.CSSProperties = {
     backgroundColor: 'green',
     padding: '10px 15px',
@@ -43,8 +45,8 @@ export default function Login() {
         <div style={{ color: 'red', margin: '10px 0' }}>{showError && <p>Please enter a valid email address.</p>}</div>
         <label htmlFor="">Password</label>
         <div style={{ display: 'flex', marginBottom: '20px' }}>
-          <input name="password" type="password" />
-          <button type="button">Show Password</button>
+          <input name="password" type={showPassword ? 'text' : 'password'} placeholder='Password' defaultValue='password123'/>
+          <button type="button" onClick={handleShowPassword}>{showPassword ? 'Hide' : 'Show'} Password</button>
         </div>
         <button style={buttonStyles} disabled={!email}>
           Login
