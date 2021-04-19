@@ -39,7 +39,7 @@ export default function Cards() {
       <a href="/thanks">Click here when you're finished</a>
       {/* NASA API docs here: https://api.nasa.gov/ */}
       <h3>Slider</h3>
-      <h3>1. Refactor this code to remove duplication and make it more 'Reacty'.</h3>
+      <h3>1. Refactor this code to remove duplication.</h3>
       <h3>2. Convert the images into a slider using the pagination buttons.</h3>
       <div className="cards">
         <div className="card" style={{ backgroundImage: `url(${image1Url})` }} />
