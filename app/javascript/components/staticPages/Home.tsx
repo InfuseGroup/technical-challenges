@@ -5,7 +5,7 @@ export default function Home({ linkPath }: { linkPath: string }) {
 
   function handleClick() {
     if (!linkPath) {
-      alert("Just kidding this doesn't work");
+      alert("You gotta fix the button first");
     } else {
       window.location.href = linkPath;
     }
