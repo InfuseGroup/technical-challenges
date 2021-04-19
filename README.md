@@ -1,11 +1,9 @@
 # Setup
 
-1. Fork this repository.
-2. Clone your forked repository to your local machine.
-3. Run `bundle`.
-4. Run `yarn` (ensure you install yarn through homebrew first - `brew install yarn`).
-5. Run `rails server`.
-6. Run `bin/webpack-dev-server`.
-7. Go to localhost:3000.
-8. Complete the challenges.
-9. Follow the instructions at the end.
+0. Ensure you have docker installed and running
+1. Run `docker-compose build`
+2. Run `docker-compose run web yarn`
+3. Run `docker-compose up`
+4. Go to localhost:3000.
+5. Complete the challenges.
+6. Follow the instructions at the end.
