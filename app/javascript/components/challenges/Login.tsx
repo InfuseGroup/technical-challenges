@@ -56,7 +56,7 @@ export default function Login() {
           <div>
             <p>Your email is invalid</p>
             <p>Please use an email of the correct format to continue.</p>
-            <p>For example, michaelbutlerjersey@gmail.com</p>
+            <p>For example, applicant@gmail.com</p>
           </div>
           }</div>
         }
