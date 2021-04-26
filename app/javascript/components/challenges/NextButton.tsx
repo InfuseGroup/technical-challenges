@@ -24,7 +24,7 @@ export default function NextButton() {
 
   return (
     <div>
-      <div style={styles} onMouseMove={handleMouseMove}>
+      <div style={styles}>
         <a href="/challenge_2"> Go to next challenge</a>
       </div>
     </div>

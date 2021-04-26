@@ -16,8 +16,9 @@ export default function Counter() {
         <input readOnly value={count} />
       </div>
       <div>
-        <button onClick={() => setCount(count ** 2)}>Decrease</button>
+        <button onClick={() => setCount(count - 1)}>Decrease</button>
         <button onClick={() => setCount(count + 1)}>Increase</button>
+        <button onClick={() => setCount(0)}>Reset</button>
       </div>
       {count === -10 && <NextButton />}
     </div>
