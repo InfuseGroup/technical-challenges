@@ -1,6 +1,15 @@
 import * as React from 'react';
 
+// Home takes parameter linkPath which is typed as a String
+
+// **** How Linkpath is defined - notes **** //
+// Linkpath is defined within /views/static_pages/home.html.erb
+// https://stackoverflow.com/questions/37811890/react-rails-gem-pass-hash-in-view-helper-react-component
+// "The components being referenced are in the `app/javascript/components` directory, and we can pass props to the react components as a hash."
+// ****//
+
 export default function Home({ linkPath }: { linkPath: string }) {
+  // https://reactjs.org/docs/hooks-state.html
   const [isTextVisible, setIsTextVisible] = React.useState<boolean>(false);
 
   function handleClick() {
