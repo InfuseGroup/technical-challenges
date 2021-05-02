@@ -10,14 +10,20 @@
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "email-validator": "^2.0.4",
+    "formik": "^2.1.4",
     "jquery": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-hook-form": "^4.9.6",
+    "react-hooks-helper": "^1.6.0",
+    "react-native-form-validator": "^0.3.2",
     "react_ujs": "^2.6.1",
     "ts-loader": "^6.2.1",
     "turbolinks": "^5.2.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "yup": "^0.28.1"
   },
   "version": "0.1.0",
   "devDependencies": {

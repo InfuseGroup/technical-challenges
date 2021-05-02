@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import NextButton from './NextButton';
 
-export default function Counter() {
-  const [count, setCount] = React.useState<number>(0);
+export default function Counter(initialCount = 1) {
+
+  const [count, setCount] = React.useState<number>(-10);
+  const resetCounter = () => setCount(0);
 
   return (
     <div>
@@ -16,8 +18,10 @@ export default function Counter() {
         <input readOnly value={count} />
       </div>
       <div>
-        <button onClick={() => setCount(count ** 2)}>Decrease</button>
+        <button onClick={() => setCount(count - 1)}>Decrease</button>
         <button onClick={() => setCount(count + 1)}>Increase</button>
+        <button onClick={resetCounter}>Reset</button>
+
       </div>
       {count === -10 && <NextButton />}
     </div>
