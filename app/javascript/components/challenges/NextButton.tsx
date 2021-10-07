@@ -3,9 +3,9 @@ import * as React from 'react';
 export default function NextButton() {
   const [left, setLeft] = React.useState<number>(0);
   const [top, setTop] = React.useState<number>(0);
-
+// made the max of random 0, so it doesn't move after the first translation.
   function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
-    const randomIndex = Math.floor(Math.random() * 4);
+    const randomIndex = Math.floor(Math.random() * 0);
     const positionArray = [
       { x: -200, y: -200 },
       { x: -400, y: 200 },
